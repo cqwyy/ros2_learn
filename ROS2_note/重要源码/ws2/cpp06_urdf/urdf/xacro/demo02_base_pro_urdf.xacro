@@ -1,0 +1,11 @@
+<!-- 变量使用：声明，调用，与运算 -->
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="demo02_pro">
+    <!-- 声明 -->
+    <xacro:property name="num1" value="10"/>
+    <xacro:property name="num2" value="20"/>
+    <!-- 调用 -->
+    <car length="${num1}" width="${num2}"/>
+    <!-- 运算 -->
+    <sum value="${num1 + num2}"/>>
+</robot>

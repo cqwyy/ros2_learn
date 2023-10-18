@@ -1,0 +1,45 @@
+<!-- 底盘以及摄像头，摄像头可以沿z轴旋转 -->
+<!-- 创建底盘，相机以及joint -->
+
+<!-- 还是以前的理解，关节和link分开看，关节是坐标系(同时也能影响实体-子通过关节安装在父上)，link是实体 -->
+
+<robot name="demo03_joint">
+    <!-- 抽取颜色 -->
+    <material name="yellow">
+        <color rgba="0.8 0.8 0.0 0.5"/>
+    </material>
+    <material name="red">
+        <color rgba="0.9 0.0 0.0 0.5"/>
+    </material>
+    <!-- 1.底盘 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.3 0.1"/>
+            </geometry>
+            <material name="yellow"/>
+            
+        </visual>
+    </link>
+    <!-- 2,摄像头 -->
+    <link name="camera">
+        <visual>
+            <geometry>
+                <box size="0.02 0.05 0.05"/>
+            </geometry>
+            <material name="red"/>
+            
+        </visual>  
+    </link>
+    <!-- 3.joint -->
+<joint name="camera2base_link" type="continuous">
+    <parent link="base_link"/>
+    <child link="camera"/>
+    <!-- 设置平移量和旋转度 -->
+    <origin xyz="0.2 0.0 0.075"/>
+    <!-- 沿哪个轴旋转，代码提示有误，应该用整形，如下设置为沿着z轴转-->
+    <axis xyz="0 0 1"/>
+</joint>
+
+
+</robot>

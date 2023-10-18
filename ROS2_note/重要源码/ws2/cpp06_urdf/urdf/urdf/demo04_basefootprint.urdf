@@ -1,0 +1,66 @@
+<!-- 底盘以及摄像头，摄像头可以沿z轴旋转 -->
+<!-- 创建底盘，相机以及joint -->
+
+
+<!-- link的origin和joint的不一样，link创建完，默认坐标系都在一个位置（全局坐标系处），平移的话坐标系不动，link相对于坐标系移动。而joint的origin会将child的link和坐标系整体相对于父级移动 -->
+<!-- 考虑到上述状况，要想将机器人整体移动到地平面上，需要用joint的偏移（将坐标系也整体偏移） -->
+<!-- fixed frame修改全局坐标系为base_footprint -->
+
+
+<robot name="demo03_joint">
+    <!-- 抽取颜色 -->
+    <material name="yellow">
+        <color rgba="0.8 0.8 0.0 0.5"/>
+    </material>
+    <material name="red">
+        <color rgba="0.9 0.0 0.0 0.5"/>
+    </material>
+    <!-- 设置初始化link -->
+    <link name = "base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <!-- 1.底盘 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.5 0.3 0.1"/>
+            </geometry>
+            <material name="yellow"/>
+            
+        </visual>
+    </link>
+    <!-- 初始化link通过关节连接base_link，设置关节的偏移量，让base_link上移 -->
+    <joint name="base_link2base_footprint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <origin xyz="0.0 0.0 0.05"/>
+    </joint>
+
+
+
+    <!-- 2,摄像头 -->
+    <link name="camera">
+        <visual>
+            <geometry>
+                <box size="0.02 0.05 0.05"/>
+            </geometry>
+            <material name="red"/>
+            
+        </visual>  
+    </link>
+    <!-- 3.joint -->
+    <joint name="camera2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="camera"/>
+        <!-- 设置平移量和旋转度 -->
+        <origin xyz="0.2 0.0 0.075"/>
+        <!-- 沿哪个轴旋转，代码提示有误，应该用整形，如下设置为沿着z轴转-->
+        <axis xyz="0 0 1"/>
+    </joint>
+
+
+</robot>

@@ -1,0 +1,23 @@
+<!-- 创建盒状机器人，长1m，宽0.5m，高0.1m -->
+
+<!-- 进入urdf文件所属目录，执行命令 check_urdf urdf文件名含后缀。urdf文件如无异常，将显示urdf中link的层级关系 -->
+<!-- urdf_to_graphviz urdf文件名含后缀 查看结构，输出pdf结构树 -->
+
+
+<!-- rviz固定坐标系改为urdf里link的名字，加上robotmodel插件，设置话题为/robot_description -->
+<!-- 根标签 -->
+<robot name="helloworld">
+    <!-- 连杆，对应刚体部分，且其对应发布的坐标系变换也是同名base_link -->
+    <link name="base_link">
+        <!-- 可视化，关于外观的 -->
+        <visual>
+            <!-- 几何外观 -->
+            <geometry>
+                <!-- 长方体 -->
+                <box size="1.0 0.5 0.1"/>
+            </geometry>
+        </visual>
+
+    </link>
+
+</robot>

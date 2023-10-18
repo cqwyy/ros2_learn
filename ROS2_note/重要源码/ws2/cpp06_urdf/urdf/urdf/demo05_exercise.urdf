@@ -1,0 +1,121 @@
+<!-- 
+    四轮机器人：长0.2,宽0.12,高0.07,轮胎半径0.025,宽度0.02,离地间距0.15
+    基本步骤：
+    1.设置base_footprint
+    2.设置base_link
+    3.使用joint将二者关联
+    4.添加车轮link
+    5.将车轮和base_link关联
+    6.其他车轮同理
+
+ -->
+
+<robot name="my_car">
+    <!-- 抽取颜色 -->
+    <material name="yellow">
+        <color rgba=" 0.9 0.6 0.0 0.5"/>
+    </material>
+    <material name="black">
+        <color rgba=" 0.0 0.0 0.0 0.5"/>
+    </material>
+    <!-- 1, -->
+    <link name="base_footprint">
+        <visual>
+            <geometry>
+                <sphere radius="0.001"/>
+            </geometry>
+        </visual>
+    </link>
+    <!-- 2 -->
+    <link name="base_link">
+        <visual>
+            <geometry>
+                <box size="0.2 0.12 0.07"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+    </link>
+    <!-- 3. -->
+    <joint name="base_link2base_footprint" type="fixed">
+        <parent link="base_footprint"/>
+        <child link="base_link"/>
+        <!-- z上的偏移，是车体高度/2+离地间距 -->
+        <origin xyz="0.0 0.0 0.05"/>
+    </joint>
+    <!-- 4. -->
+    <link name="left_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.02"/>
+            </geometry>
+            <material name="black"/>
+            <!-- 让车轮实体翻滚 -->
+            <origin rpy="1.57 0.0 0.0"/>
+        </visual>
+    </link>
+    <!-- 5. -->
+    <joint name="left_front_wheel2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_front_wheel"/>
+        <origin xyz="0.08 0.06 -0.025"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- 4.2 -->
+    <link name="right_front_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.02"/>
+            </geometry>
+            <material name="black"/>
+            <!-- 让车轮实体翻滚 -->
+            <origin rpy="1.57 0.0 0.0"/>
+        </visual>
+    </link>
+    <!-- 5.2 -->
+    <joint name="right_front_wheel2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_front_wheel"/>
+        <origin xyz="0.08 -0.06 -0.025"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- 4.3 -->
+    <link name="left_back_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.02"/>
+            </geometry>
+            <material name="black"/>
+        <!-- 让车轮实体翻滚 -->
+            <origin rpy="1.57 0.0 0.0"/>
+        </visual>
+        </link>
+    <!-- 5.3 -->
+    <joint name="left_back_wheel2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="left_back_wheel"/>
+        <origin xyz="-0.08 0.06 -0.025"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <!-- 4.4 -->
+    <link name="right_back_wheel">
+        <visual>
+            <geometry>
+                <cylinder radius="0.025" length="0.02"/>
+            </geometry>
+            <material name="black"/>
+            <!-- 让车轮实体翻滚 -->
+            <origin rpy="1.57 0.0 0.0"/>
+        </visual>
+    </link>
+    <!-- 5.4 -->
+    <joint name="right_back_wheel2base_link" type="continuous">
+        <parent link="base_link"/>
+        <child link="right_back_wheel"/>
+        <origin xyz="-0.08 -0.06 -0.025"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    
+</robot>

@@ -1,0 +1,33 @@
+<!-- 进入xacro文件所属的目录 调用指令xacro 文件名含后缀   会自动解析并输出urdf解析结果 -->
+<!-- 用功能包也可以ros2 run xacro xacro 文件名含后缀  -->
+
+
+<!-- 必须要有命名空间的声明，否则用到xacro的东西就抛出异常（有了命名空间就限定xacro文件能用哪些标签） -->
+<robot name="mycar" xmlns:xacro="http://wiki.ros.org/xacro">
+    <!-- 属性封装 -->
+    <xacro:property name="wheel_radius" value="0.025" />
+    <xacro:property name="wheel_length" value="0.02" />
+    <xacro:property name="PI" value="3.1415927" />
+
+    <!-- 宏(函数) -->
+    <xacro:macro name="wheel_func" params="wheel_name" >
+        <link name="${wheel_name}_wheel">
+            <visual>
+                <geometry>
+                    <cylinder radius="${wheel_radius}" length="${wheel_length}" />
+                </geometry>
+
+                <origin xyz="0 0 0" rpy="${PI / 2} 0 0" />
+
+                <material name="wheel_color">
+                    <color rgba="0 0 0 0.3" />
+                </material>
+            </visual>
+        </link>
+    </xacro:macro>
+    <!-- 宏（函数）调用 -->
+    <xacro:wheel_func wheel_name="left_front"/>
+    <xacro:wheel_func wheel_name="left_back"/>
+    <xacro:wheel_func wheel_name="right_front"/>
+    <xacro:wheel_func wheel_name="right_back"/>
+</robot>

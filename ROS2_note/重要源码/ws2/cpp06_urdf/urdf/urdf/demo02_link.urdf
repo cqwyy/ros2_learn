@@ -1,0 +1,31 @@
+<!-- 生成不同形状的机器人部件 -->
+<!-- link的origin和joint的不一样，link创建完，默认坐标系都在一个位置（全局坐标系处），平移的话坐标系不动，link相对于坐标系移动。而joint的origin会将child的link和坐标系整体相对于父级移动 -->
+<!-- fixed frame那个参数设置的base_link所以默认全局坐标系就是base_link -->
+
+<robot name="demo02_link">
+    <material name="red">
+        <color rgba="0.8 0.0 0.0 0.0"/>                
+    </material>
+    <link name="bake_link">
+        <visual>
+            <!-- 外观 -->
+            <geometry>
+                <!-- 长方体，球，圆柱体 -->
+                <!-- <box size="0.0 0.0 0.0"/> -->
+                <sphere radius="1.0"/> 
+                <!-- <cylinder radius="0.0" length="0.0"/> -->
+                <!-- 皮肤引用mesh：scale是三个维度的缩放比，stl文件是mm为单位，rviz2是m为单位 -->
+                <!-- <mesh filename="package://cpp06_urdf/meshes/xxx.stl" scale="0.001 0.001 0.001"/> --> 
+            </geometry>
+            <!-- 平移量以及旋转度（以自身坐标系为参考），一般不用,一般都是用joint -->
+            <origin xyz="0 0 0" rpy="0.0 0.0 0.0"/>
+            <!-- 颜色 -->
+            <!-- <material name="yellow">
+                <color rgba="0.8 0.0 0.0 0.0"/>                
+            </material> -->
+            <!-- 如下方法是抽取变量，让标签和link平级，相当于全局变量，下面可以通过name直接调用 -->
+            <material name="red"/>
+        </visual>
+    </link>
+
+</robot>
