@@ -8,3 +8,5 @@ https://github.com/baiyeweiguang/CSU-RM-Sentry
 https://gitee.com/SMBU-POLARBEAR/pb_rmsimulation      mid360仿真+FASTLIO
 华南虎视觉库 包含了自瞄、打符的识别、预测、补偿、决策的所有功能Github代码地址：https://github.com/cv-rmvl/rmvl.git
 说明文档首页：https://vision.scutbot.cn/rmvl                  说明文档简介：https://vision.scutbot.cn/rmvl/master/d1/dfb/intro.html
+https://github.com/Wangben1019/KDRobot_RM2023Sentry_Navigation  河北科大完整开源
+https://github.com/HBUTHUANGPX/Hbut_LC_sentry.git 河北工业开源
