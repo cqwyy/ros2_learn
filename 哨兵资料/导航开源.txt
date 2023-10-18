@@ -1,0 +1,10 @@
+https://bbs.robomaster.com/forum.php?mod=viewthread&tid=22576&extra=page%3D1%26filter%3Dtypeid%26typeid%3D167  官方开源，评论区有其他开源
+https://bbs.robomaster.com/forum.php?mod=viewthread&tid=22812&extra=page%3D1%26filter%3Dtypeid%26typeid%3D167 华科
+https://bbs.robomaster.com/forum.php?mod=viewthread&tid=22635&extra=page%3D1%26filter%3Dtypeid%26typeid%3D167 沈航
+https://bbs.robomaster.com/forum.php?mod=viewthread&tid=22796&extra=page%3D1%26filter%3Dtypeid%26typeid%3D167 南航
+https://bbs.robomaster.com/forum.php?mod=viewthread&tid=22790&extra=page%3D2%26filter%3Dtypeid%26typeid%3D167 哈工
+https://github.com/baiyeweiguang/CSU-RM-Sentry
+我们（中南大学FYT）哨兵机器人定位和导航的框架开源啦，目前论坛上少见的Nav2的导航，上坡和2d导航兼具。ros版本为humble。希望这次开源对大家哨兵的研发有帮助，吸引到更多朋友交流Nav2的调试与开发
+https://gitee.com/SMBU-POLARBEAR/pb_rmsimulation      mid360仿真+FASTLIO
+华南虎视觉库 包含了自瞄、打符的识别、预测、补偿、决策的所有功能Github代码地址：https://github.com/cv-rmvl/rmvl.git
+说明文档首页：https://vision.scutbot.cn/rmvl                  说明文档简介：https://vision.scutbot.cn/rmvl/master/d1/dfb/intro.html
